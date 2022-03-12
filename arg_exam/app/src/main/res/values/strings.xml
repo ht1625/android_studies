@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">arg_exam</string>
+    <string name="title">Calculating Exam Average</string>
+    <string name="subtitle">Enter Midterm Exam:</string>
+    <string name="subtitle2">Enter Final Exam:</string>
+    <string name="btn">Calculate</string>
+    <string name="textView">About Exam</string>
+</resources>
