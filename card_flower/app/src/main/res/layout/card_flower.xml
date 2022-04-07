@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background"
-    android:padding="10dp"
+    android:padding="12dp"
     android:shape="rectangle">
 
     <LinearLayout
@@ -13,12 +13,12 @@
         android:layout_height="match_parent"
         android:background="@drawable/background"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="342dp"
-            android:layout_height="170dp"
+            android:layout_width="344dp"
+            android:layout_height="172dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/gul" />
 
@@ -34,8 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:maxLines="1"
-                android:paddingLeft="5dp"
-                android:paddingTop="10dp"
+                android:paddingLeft="4dp"
+                android:paddingTop="12dp"
                 android:text="GÜL"
                 android:textColor="#2B732E"
                 android:textSize="20sp" />
@@ -43,9 +43,9 @@
             <TextView
                 android:id="@+id/data"
                 android:layout_width="match_parent"
-                android:layout_height="122dp"
-                android:maxLines="5"
-                android:paddingLeft="5dp"
+                android:layout_height="124dp"
+                android:maxLines="4"
+                android:paddingLeft="4dp"
                 android:text="Rosales takımının, Gülgiller familyasından bir bitkidir. Kuzey yarımkürenin ılıman ve subtropikal bölgelerinde yetişir. Kışın yaprağını döker, ancak bazı türleri ise sürekli yeşildir. " />
         </LinearLayout>
     </LinearLayout>
