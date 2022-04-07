@@ -10,8 +10,8 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="225dp"
-        android:padding="10dp"
+        android:layout_height="224dp"
+        android:padding="12dp"
         android:textAlignment="center"
         app:srcCompat="@drawable/gul" />
 
@@ -19,9 +19,9 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="20dp"
-        android:paddingTop="10dp"
+        android:paddingTop="12dp"
         android:paddingBottom="10dp"
         android:text="GÜL"
         android:textAlignment="center"
@@ -31,7 +31,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="12dp"
         android:text="TextView"
         android:textSize="16sp" />
 </LinearLayout>
