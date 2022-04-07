@@ -1,6 +1,6 @@
 package com.example.card_flower
 
-class flowers {
+class flower {
     var title:String?=null
     var text:String?=null
     var img:Int?=null
