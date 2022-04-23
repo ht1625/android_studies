@@ -4,12 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.hipo_task.databinding.ActivityMainBinding
 import com.example.hipo_task.model.member
 import org.json.JSONException
 import org.json.JSONObject
@@ -18,11 +16,15 @@ import java.nio.charset.Charset
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var BindingMain: ActivityMainBinding
+
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val recyclerView = findViewById<RecyclerView>(R.id.MemberList)
+        BindingMain = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(BindingMain.root)
+
+        val recyclerViewMainActivity = BindingMain.MemberList
         val usersList: ArrayList<member> = ArrayList()
 
         try {
@@ -49,40 +51,38 @@ class MainActivity : AppCompatActivity() {
 
         if (intent != null) {
             val intent = intent.extras
-            val name: String? = intent?.getString("name")
-            val age: Int? = intent?.getString("age")?.toInt()
-            val position: String? = intent?.getString("pos")
-            val github: String? = intent?.getString("git")
-            val location: String? = intent?.getString("loc")
-            val year: Int? = intent?.getString("year")?.toInt()
+            val nameForAddMember: String? = intent?.getString("nameForRegistery")
+            val ageForAddMember: Int? = intent?.getString("ageForRegistery")?.toInt()
+            val positionForAddMember: String? = intent?.getString("positionForRegistery")
+            val githubForAddMember: String? = intent?.getString("githubForRegistery")
+            val locationForAddMember: String? = intent?.getString("locationForRegistery")
+            val yearsInHipoForAddMember: Int? =
+                intent?.getString("yearsInHipoForRegistery")?.toInt()
 
-            val add_member: member = member(name, age, location, github, position, year)
-
-            if (name != null) {
+            if (nameForAddMember != null || ageForAddMember != null || locationForAddMember != null || githubForAddMember != null || positionForAddMember != null || yearsInHipoForAddMember != null) {
+                val add_member: member = member(
+                    nameForAddMember,
+                    ageForAddMember,
+                    locationForAddMember,
+                    githubForAddMember,
+                    positionForAddMember,
+                    yearsInHipoForAddMember
+                )
                 usersList!!.add(add_member)
-                val btnRegister = findViewById<Button>(R.id.add_member)
-                btnRegister.visibility = View.GONE
+                BindingMain.addMember.visibility = View.GONE
             }
-            /*getIntent().removeExtra("name")
-            getIntent().removeExtra("age")
-            getIntent().removeExtra("pos")
-            getIntent().removeExtra("loc")
-            getIntent().removeExtra("git")
-            getIntent().removeExtra("year")*/
         }
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerViewMainActivity.layoutManager = LinearLayoutManager(this)
         var itemAdapter = MemberAdapter(this, usersList)
-        recyclerView.adapter = itemAdapter
+        recyclerViewMainActivity.adapter = itemAdapter
 
-        val goto_AddMember = findViewById<Button>(R.id.add_member)
-        goto_AddMember.setOnClickListener {
+        BindingMain.addMember.setOnClickListener {
             val intent = Intent(this, AddMember::class.java)
-            startActivity(intent)
+            startActivity (intent)
         }
 
-        val search = findViewById<SearchView>(R.id.search_member)
-        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        BindingMain.searchMember.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 val newList: ArrayList<member> = ArrayList()
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 itemAdapter = MemberAdapter(this@MainActivity, newList)
-                recyclerView.adapter = itemAdapter
+                recyclerViewMainActivity.adapter = itemAdapter
                 return true
             }
 
@@ -121,5 +121,4 @@ class MainActivity : AppCompatActivity() {
         }
         return json
     }
-
 }

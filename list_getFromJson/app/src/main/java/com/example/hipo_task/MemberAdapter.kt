@@ -28,12 +28,12 @@ class MemberAdapter(var context: MainActivity, val items: ArrayList<member>) :
 
         holder.tv_name.setOnClickListener { v ->
             val intent = Intent(v.context, MemberDetail::class.java)
-            intent.putExtra("name", item.name)
-            intent.putExtra("age", item.age)
-            intent.putExtra("loc", item.location)
-            intent.putExtra("git", item.github)
-            intent.putExtra("pos", item.position)
-            intent.putExtra("year", item.years_in_hipo)
+            intent.putExtra("nameForDetail", item.name)
+            intent.putExtra("ageForDetail", item.age)
+            intent.putExtra("locationForDetail", item.location)
+            intent.putExtra("githubForDetail", item.github)
+            intent.putExtra("positionForDetail", item.position)
+            intent.putExtra("yearsInHipoForDetail", item.years_in_hipo)
             v.context.startActivity(intent)
         }
     }
