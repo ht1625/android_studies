@@ -1,5 +1,5 @@
 <h1> Hipo Task </h1>
 
-<p align="center" height="400px">
+<p align="center" height="50">
   <img src="https://github.com/ht1625/android_studies/blob/main/list_getFromJson/ImagesProject/ImageHipoTask1.png">
 </p>
