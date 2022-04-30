@@ -1,11 +1,11 @@
 <h1> Hipo Task </h1>
 
 <p>
-  Uygulama, bir json dosyasından alınan üyeleri sıralama, arama ve kendini ekleme.
+  The application is to sort, search and insert itself members taken from a json file.
 </p>
 
 <p>
-  MainActivity dosyası içinde, assets/hipo.json'dan üye bilgileri alınır. Üye bilgileri ile Model/member class listesi oluşturulur. Oluşan userList MemberAdapter'a gönderilir ve activity_main_xml'daki recyclerView'in adapter'ine eşitlenir. Böylece üyeler listelenmiş olur. Arama için searcView'e girilen değer değişikliği için setOnQueryTextListener kullanılır ve girilen input değeri ile member.name ve member.position içinde arama yapılır. Çıkan sonuçlara göre userList güncellenir.
+  Inside the MainActivity file, member information is retrieved from assets/hipo.json. Model/member class list is created with member information. The resulting userList is sent to the MemberAdapter and synchronized to the adapter of the recyclerView in activity_main_xml. Thus, the members are listed. For the search, setOnQueryTextListener is used to change the value entered in searcView, and a search is made in member.name and member.position with the entered input value. The userList is updated according to the results.
 </p>  
 <p align="center">
   <img src="https://github.com/ht1625/android_studies/blob/main/list_getFromJson/ImagesProject/ImageHipoTask1.png" height="400">
@@ -13,7 +13,7 @@
 
 <h1> </h1>
 <p>
-  Kayıt olmak isteyen stajyer Register butonuna tıkladığında, intent kullanılarak AddMember.kt(Register File) sayfasına gönderilir. Burada kulllanıcı gerekli bilgileri doldurmalıdır. Register butonuna tıkladığında EditText içerisindeki bilgiler alınıp intent kullanılarak MainActivity'ye yönlendirilir. MainActivity de gelen bilgiler ile bir member class'ı oluşturulur ve userList'e eklenilir.
+  When the intern who wants to register clicks on the Register button, it is sent to the AddMember.kt(Register File) page using the intent. Here, the user must fill in the necessary information. When you click on the Register button, the information in the EditText is taken and directed to the MainActivity using intent. A member class is created with the information from MainActivity and added to the userList.
 </p>  
 <p align="center">
   <img src="https://github.com/ht1625/android_studies/blob/main/list_getFromJson/ImagesProject/ImageHipoTask2.png" height="400">
@@ -21,7 +21,7 @@
 
 <h1> </h1>
 <p>
-  Üyeler için detay sayfası  bulunmaktadır. Kullanıcı, üyenin adına yada pozisyonuna tıkladığı zaman, MemberAdapter içerisinden üyenin bilgileri alınıp intent ile MemberDetail.kt'e aktarılır. 
+  There is a detail page for members. When the user clicks on the member's name or position, the member's information is directed from MemberAdapter and transferred to MemberDetail.kt with intent. 
 </p>  
 <p align="center">
   <img src="https://github.com/ht1625/android_studies/blob/main/list_getFromJson/ImagesProject/ImageHipoTask3.png" height="400">
