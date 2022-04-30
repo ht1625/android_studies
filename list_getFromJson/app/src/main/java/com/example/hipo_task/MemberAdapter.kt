@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hipo_task.model.member
+import com.example.hipo_task.model.Member
 import kotlinx.android.synthetic.main.row_member.view.*
 
-class MemberAdapter(var context: MainActivity, val items: ArrayList<member>) :
+class MemberAdapter(var context: MainActivity, val items: ArrayList<Member>) :
     RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,7 +27,7 @@ class MemberAdapter(var context: MainActivity, val items: ArrayList<member>) :
         holder.tv_name.text = item.name + " \n " + item.position
 
         holder.tv_name.setOnClickListener { v ->
-            val intent = Intent(v.context, MemberDetail::class.java)
+            val intent = Intent(v.context, MemberDetailActivity::class.java)
             intent.putExtra("nameForDetail", item.name)
             intent.putExtra("ageForDetail", item.age)
             intent.putExtra("locationForDetail", item.location)

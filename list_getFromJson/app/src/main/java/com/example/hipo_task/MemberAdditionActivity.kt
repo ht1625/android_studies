@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hipo_task.databinding.ActivityAddMemberBinding
 
-class AddMember : AppCompatActivity() {
+class MemberAdditionActivity : AppCompatActivity() {
 
     private lateinit var BindingAddMember: ActivityAddMemberBinding
 
@@ -24,7 +24,7 @@ class AddMember : AppCompatActivity() {
             val yearHipo = BindingAddMember.year.text.toString()
 
             //goto MainActivity
-            val intent = Intent(this@AddMember, MainActivity::class.java)
+            val intent = Intent(this@MemberAdditionActivity, MainActivity::class.java)
             intent.putExtra("nameForRegistery", name)
             intent.putExtra("ageForRegistery", age)
             intent.putExtra("locationForRegistery", location)

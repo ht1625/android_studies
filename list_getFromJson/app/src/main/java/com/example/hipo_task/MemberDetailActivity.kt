@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hipo_task.databinding.ActivityMemberDetailBinding
 
-class MemberDetail : AppCompatActivity() {
+class MemberDetailActivity : AppCompatActivity() {
 
     private lateinit var BindingMemberDetail: ActivityMemberDetailBinding
 

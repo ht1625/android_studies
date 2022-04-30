@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hipo_task.databinding.ActivityMainBinding
-import com.example.hipo_task.model.member
+import com.example.hipo_task.model.Member
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(BindingMain.root)
 
         val recyclerViewMainActivity = BindingMain.MemberList
-        val usersList: ArrayList<member> = ArrayList()
+        val usersList: ArrayList<Member> = ArrayList()
 
         try {
             val obj = JSONObject(getJSONFromAssets()!!)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 val position = hipo.getString("position")
                 val years_in_hipo = hipo.getInt("years_in_hipo")
 
-                val userDetails = member(name, age, location, github, position, years_in_hipo)
+                val userDetails = Member(name, age, location, github, position, years_in_hipo)
 
                 usersList.add(userDetails)
             }
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 intent?.getString("yearsInHipoForRegistery")?.toInt()
 
             if (nameForAddMember != null || ageForAddMember != null || locationForAddMember != null || githubForAddMember != null || positionForAddMember != null || yearsInHipoForAddMember != null) {
-                val add_member: member = member(
+                val add_member: Member = Member(
                     nameForAddMember,
                     ageForAddMember,
                     locationForAddMember,
@@ -78,14 +78,14 @@ class MainActivity : AppCompatActivity() {
         recyclerViewMainActivity.adapter = itemAdapter
 
         BindingMain.addMember.setOnClickListener {
-            val intent = Intent(this, AddMember::class.java)
+            val intent = Intent(this, MemberAdditionActivity::class.java)
             startActivity (intent)
         }
 
         BindingMain.searchMember.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
-                val newList: ArrayList<member> = ArrayList()
+                val newList: ArrayList<Member> = ArrayList()
                 for (user in usersList) {
                     if (user.name?.contains(newText) == true || user.position?.contains(newText) == true) {
                         newList.add(user)

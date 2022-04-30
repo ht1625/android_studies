@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hipo_Task">
         <activity
-            android:name=".MemberDetail"
+            android:name=".MemberDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".AddMember"
+            android:name=".MemberAdditionActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
